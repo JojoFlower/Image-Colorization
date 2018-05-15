@@ -20,26 +20,27 @@ Xtrain = Xtrain.reshape(1, 256, 256, 1)
 Ytrain = Ytrain.reshape(1, 256, 256, 2)
 Ytrain /= 128 
 
-# Building the neural network
+#Design the neural network
 model = Sequential()
 model.add(InputLayer(input_shape=(256, 256, 1)))
-model.add(Conv2D(8, (3, 3), activation='relu', padding='same', strides=2))
-model.add(Conv2D(8, (3, 3), activation='relu', padding='same'))
-model.add(Conv2D(16, (3, 3), activation='relu', padding='same'))
-model.add(Conv2D(16, (3, 3), activation='relu', padding='same', strides=2))
-model.add(Conv2D(32, (3, 3), activation='relu', padding='same'))
-model.add(Conv2D(32, (3, 3), activation='relu', padding='same', strides=2))
+model.add(Conv2D(64, (3, 3), activation='relu', padding='same'))
+model.add(Conv2D(64, (3, 3), activation='relu', padding='same', strides=2))
+model.add(Conv2D(128, (3, 3), activation='relu', padding='same'))
+model.add(Conv2D(128, (3, 3), activation='relu', padding='same', strides=2))
+model.add(Conv2D(256, (3, 3), activation='relu', padding='same'))
+model.add(Conv2D(256, (3, 3), activation='relu', padding='same', strides=2))
+model.add(Conv2D(512, (3, 3), activation='relu', padding='same'))
+model.add(Conv2D(256, (3, 3), activation='relu', padding='same'))
+model.add(Conv2D(128, (3, 3), activation='relu', padding='same'))
+model.add(UpSampling2D((2, 2)))
+model.add(Conv2D(64, (3, 3), activation='relu', padding='same'))
 model.add(UpSampling2D((2, 2)))
 model.add(Conv2D(32, (3, 3), activation='relu', padding='same'))
-model.add(UpSampling2D((2, 2)))
-model.add(Conv2D(16, (3, 3), activation='relu', padding='same'))
-model.add(UpSampling2D((2, 2)))
 model.add(Conv2D(2, (3, 3), activation='tanh', padding='same'))
-
-# Finish model
-model.compile(optimizer='rmsprop',loss='mse')
+model.add(UpSampling2D((2, 2)))
         
-# Train model      
+# Train model
+model.compile(optimizer='adam',loss='mse')
 model.fit(x=Xtrain, y=Ytrain, epochs=100, batch_size=1)
 
 #Save model

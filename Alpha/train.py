@@ -37,7 +37,7 @@ model.add(UpSampling2D((2, 2)))
 model.add(Conv2D(2, (3, 3), activation='tanh', padding='same'))
 
 # Finish model
-model.compile(optimizer='rmsprop',loss='mse')
+model.compile(optimizer='adam',loss='mse')
         
 # Train model      
 model.fit(x=Xtrain, y=Ytrain, epochs=100, batch_size=1)
