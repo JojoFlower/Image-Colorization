@@ -16,8 +16,7 @@ for filename in os.listdir('Train/'):
 X = np.array(X, dtype=float)
 Xtrain = rgb2lab(1.0/255*X)[:,:,:,0]
 Ytrain = rgb2lab(1.0/255*X)[:,:,:,1:]
-Xtrain = Xtrain.reshape(1, 256, 256, 1)
-Ytrain = Ytrain.reshape(1, 256, 256, 2)
+Xtrain = Xtrain.reshape(Xtrain.shape+(1,))
 Ytrain /= 128 
 
 # Building the neural network
@@ -40,7 +39,7 @@ model.add(Conv2D(2, (3, 3), activation='tanh', padding='same'))
 model.compile(optimizer='adam',loss='mse')
         
 # Train model      
-model.fit(x=Xtrain, y=Ytrain, epochs=100, batch_size=1)
+model.fit(x=Xtrain, y=Ytrain, epochs=10, batch_size=10)
 
 #Save model
 model.save('model.h5')

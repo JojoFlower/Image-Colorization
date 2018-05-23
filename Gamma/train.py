@@ -21,8 +21,7 @@ for filename in os.listdir('Train/'):
 X = np.array(X, dtype=float)
 Xtrain = rgb2lab(1.0/255*X)[:,:,:,0]
 Ytrain = rgb2lab(1.0/255*X)[:,:,:,1:]
-Xtrain = Xtrain.reshape(1, 256, 256, 1)
-Ytrain = Ytrain.reshape(1, 256, 256, 2)
+Xtrain = Xtrain = Xtrain.reshape(Xtrain.shape+(1,))
 Ytrain /= 128 
 
 #Load weights
