@@ -11,8 +11,8 @@ import os
 model = load_model('modelFamily.h5')
 
 color_me = []
-for filename in os.listdir('Test/People/'):
-    img = cv2.imread('Test/People/'+filename)
+for filename in os.listdir('Test/Orang/'):
+    img = cv2.imread('Test/Orang/'+filename)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     img = cv2.resize(img,(256,256))
     color_me.append(img)
