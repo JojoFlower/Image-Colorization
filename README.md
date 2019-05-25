@@ -10,7 +10,7 @@ We used a Convolutional Neural Network Structure to color black & white images:
 * Dataset: Various images from Google Images
 * Neural Network Architecture: Convolutional Encoder/Decodeur initialize with Inception Resnet V2 weights
 * Training: The deep learning platform FloydHub to train our Neural Network quickly with GPU
-* Techno: Keras/TensorFlow & OpenCV
+* Technos: Keras/TensorFlow & OpenCV
 
 ![Neural Network Architecture](https://cdn-images-1.medium.com/max/1600/1*KRXxAAxlBz1psRvB1ak04Q.png)
 
