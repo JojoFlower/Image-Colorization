@@ -13,7 +13,7 @@ We used a Convolutional Neural Network Structure to color black & white images:
 
 ![Neural Network Architecture](https://cdn-images-1.medium.com/max/1600/1*KRXxAAxlBz1psRvB1ak04Q.png)
 
-## Result
+## Results
 ![Test Orangutan](https://raw.githubusercontent.com/JojoFlower/Image-Colorization/master/v1/Test/Orang/img.png)
 ![Result Orangutan](https://raw.githubusercontent.com/JojoFlower/Image-Colorization/master/v1/Result/img_0.png)
 
